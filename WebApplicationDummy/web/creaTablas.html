@@ -14,42 +14,56 @@ and open the template in the editor.
         <script>count = 1;</script>
         <script>
             function addField() {
+                count++;
                 var divN = "div" + count;
                 var fieldN = "field" + count;
                 var typeN = "type" + count;
-                count++;
                 var field = "<div id = '" + divN + "'>";
-                field += "Field name: <input type='text' name='" + fieldN + "'/>";
-                field += "Type: <select name='" + typeN + "'>";
+                field += "Field name: <input type='text' name='" + fieldN + "' placeholder='" + fieldN + "'onkeyup='verify(this)' required/>";
+                field += " Type: <select name='" + typeN + "'>";
                 field += "<option>Varchar</option>";
                 field += "<option>Integer</option>";
                 field += "<option>Double</option>";
-                field += "</select><br>";
+                field += "</select> Primary key: <input type='radio' name='key' value= '" + fieldN + "'/><br>";
                 document.getElementById("fieldsDiv").innerHTML += field;
             }
-            
+
             function removeField() {
-                var divN = "div" + count;
-                count--;
-                var deadDiv = document.getElementById(divN);
-                deadDiv.parentNode.removeChild(deadDiv);
+                if (count > 1) {
+                    var divN = "div" + count;
+                    count--;
+                    var deadDiv = document.getElementById(divN);
+                    deadDiv.parentNode.removeChild(deadDiv);
+                }
+                else {
+                    alert("The table must have at least one field.");
+                }
+            }
+
+            function verify(element) {
+                var x = element.value;
+                if (x == "" || x.indexOf(" ") >= 0)
+                    alert("Invalid name.");
             }
         </script>
         <h1>DataWeb Wizard</h1>
         <h3>Table creator</h3>
-        <form>
+        <form name = "bigForm" autocomplete="off">
+            <input type="text" id="tableN" placeholder="myTable" onkeyup="verify(this)" required/><br><br>
             <div id="fieldsDiv">
                 <div id="div1">
-                    Field name: <input type="text" name="field1" value="" />
+                    Field name: <input type="text" name="field1" placeholder="field1" onkeyup="verify(this)" required/>
                     Type: <select name="type1">
                         <option>Varchar</option>
                         <option>Integer</option>
                         <option>Double</option>
-                    </select><br>
+                    </select>
+                    Primary key: <input type="radio" name="key" value= "field1" checked="checked"/><br>
                 </div>
             </div>
             <br><input type="button" value="Add field" onclick="addField()"/>
             <input type="button" value="Remove field" onclick="removeField()"/>
+            <br><input type="submit" value="Ready!" />
         </form>
     </body>
 </html>
