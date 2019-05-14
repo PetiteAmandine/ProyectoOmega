@@ -11,6 +11,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <%
+            HttpSession mySession = request.getSession();
+            if (mySession.getAttribute("user") == null)
+                response.sendRedirect("index.jsp?logout=false");
+        %>
         <script>count = 1;</script>
         <script>
             function addField() {
@@ -47,9 +52,12 @@ and open the template in the editor.
             }
         </script>
         <h1>DataWeb Wizard</h1>
+        <div>
+            <script src="links.js"></script>
+        </div>
         <h3>Table creator</h3>
-        <form name = "bigForm" autocomplete="off">
-            <input type="text" id="tableN" placeholder="myTable" onkeyup="verify(this)" required/><br><br>
+        <form name = "bigForm" autocomplete="off" action='createTableServlet'>
+            Table name: <input type="text" id="tableN" placeholder="myTable" onkeyup="verify(this)" required/><br><br>
             <div id="fieldsDiv">
                 <div id="div1">
                     Field name: <input type="text" name="field1" placeholder="field1" onkeyup="verify(this)" required/>
@@ -63,7 +71,7 @@ and open the template in the editor.
             </div>
             <br><input type="button" value="Add field" onclick="addField()"/>
             <input type="button" value="Remove field" onclick="removeField()"/>
-            <br><input type="submit" value="Ready!" />
+            <br><br><input type="submit" value="Ready!" /><br>
         </form>
     </body>
 </html>

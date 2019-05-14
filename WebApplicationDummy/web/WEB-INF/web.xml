@@ -8,6 +8,14 @@
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>servlets.loginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createTableServlet</servlet-name>
+        <servlet-class>servlets.createTableServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkTablesServlet</servlet-name>
+        <servlet-class>servlets.checkTablesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createTableServlet</servlet-name>
+        <url-pattern>/createTableServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkTablesServlet</servlet-name>
+        <url-pattern>/checkTablesServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

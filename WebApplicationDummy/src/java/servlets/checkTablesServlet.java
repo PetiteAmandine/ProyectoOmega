@@ -11,20 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 
 /**
  *
  * @author Amandine
  */
-public class registerServlet extends HttpServlet {
+public class checkTablesServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,33 +31,16 @@ public class registerServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DataPresenter</title>");            
+            out.println("<title>Servlet checkTablesServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/DataWebWizard", "root", "root");
-            out.println("<p>Entré.</p>");
+            out.println("<h1>Servlet checkTablesServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-            Statement query = con.createStatement();
-            ResultSet rs = query.executeQuery("SELECT * FROM USERS WHERE USERNAME = '" + request.getParameter("user") + "'");
-            if (rs.next()) {
-                response.sendRedirect("index.jsp?rerror=taken");
-            } else {
-                query.executeUpdate("INSERT INTO USERS VALUES ('" + request.getParameter("user") + "', '" + 
-                        request.getParameter("pass") + "')");
-                response.sendRedirect("index.jsp?succ=" + request.getParameter("user"));
-            }
-            con.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(registerServlet.class.getName()).log(Level.SEVERE, null, ex);
-            //response.sendRedirect("index.jsp?rerror=err");
-        } catch (SQLException ex) {
-            Logger.getLogger(registerServlet.class.getName()).log(Level.SEVERE, null, ex);
-            //response.sendRedirect("index.jsp?rerror=err");
         }
     }
 

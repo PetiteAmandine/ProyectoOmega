@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,9 +46,11 @@ public class loginServlet extends HttpServlet {
             ResultSet rs = query.executeQuery("SELECT * FROM USERS WHERE USERNAME = '" + request.getParameter("user") + 
                     "' AND PASS = '" + request.getParameter("pass") + "'");
             if (rs.next()) {
-                response.sendRedirect("creaTablas.html");
+                HttpSession mySession = request.getSession();
+                mySession.setAttribute("user", request.getParameter("user"));
+                response.sendRedirect("mainPage.jsp");
             } else {
-                response.sendRedirect("index.jsp/lerror=error");
+                response.sendRedirect("index.jsp?lerror=error");
             }
             con.close();
         } catch (ClassNotFoundException ex) {
