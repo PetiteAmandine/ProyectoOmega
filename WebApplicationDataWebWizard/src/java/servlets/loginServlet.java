@@ -7,18 +7,12 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import webserviceclients.RESTfulClient;
 
 /**
  *
@@ -40,23 +34,15 @@ public class loginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/DataWebWizard", "root", "root");
-            Statement query = con.createStatement();
-            ResultSet rs = query.executeQuery("SELECT * FROM USERS WHERE USERNAME = '" + request.getParameter("user") + 
-                    "' AND PASS = '" + request.getParameter("pass") + "'");
-            if (rs.next()) {
+            RESTfulClient client = new RESTfulClient(request.getParameter("user"), request.getParameter("pass"));
+            String res = client.doLogin();
+            if (res.equals("true")) {
                 HttpSession mySession = request.getSession();
                 mySession.setAttribute("user", request.getParameter("user"));
                 response.sendRedirect("mainPage.jsp");
             } else {
                 response.sendRedirect("index.jsp?lerror=error");
             }
-            con.close();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(loginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(loginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
