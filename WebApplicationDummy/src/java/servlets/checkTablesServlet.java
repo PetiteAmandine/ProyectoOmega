@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -32,15 +34,20 @@ public class checkTablesServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet checkTablesServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet checkTablesServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            /*JSONObject jsonResponse = new JSONObject();
+            JSONArray clientes = new JSONArray();
+            JSONObject cliente = new JSONObject();
+            cliente.put("nombre", "Bolita");
+            clientes.add(cliente);
+            cliente = new JSONObject();
+            cliente.put("nombre", "Amandine");
+            clientes.add(cliente);
+            cliente = new JSONObject();
+            cliente.put("nombre", "Pedi");
+            clientes.add(cliente);
+            jsonResponse.put("clientes", clientes);
+            out.write(jsonResponse.toString());*/
+            //Connect to web service, send username, and obtain result set in form of json or xml
         }
     }
 
