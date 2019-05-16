@@ -47,7 +47,7 @@ public class registerServlet extends HttpServlet {
             out.println("<body>");
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/DataWebWizard", "root", "root");
-            out.println("<p>Entré.</p>");
+            out.println("<p>EntrÃ©.</p>");
             out.println("</body>");
             out.println("</html>");
             Statement query = con.createStatement();

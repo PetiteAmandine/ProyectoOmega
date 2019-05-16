@@ -54,9 +54,9 @@ public class loginServlet extends HttpServlet {
             }
             con.close();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(registerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(registerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
