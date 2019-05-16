@@ -31,16 +31,38 @@ public class createTableServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet createTableServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet createTableServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            //create string
+            StringBuilder sb = new StringBuilder();
+            if (request.getParameter("cCount") != null) {
+                int cols = Integer.parseInt(request.getParameter("cCount"));
+                String key = "";
+                sb.append("create table " + request.getParameter("tableN") + " (");
+                for (int i = 1; i <= cols; i++) {
+                    String name = request.getParameter("field" + i);
+                    String type;
+                    switch (request.getParameter("type" + i)) {
+                        case "Varchar": type = "varchar(30)";
+                                        break;
+                        case "Integer": type = "int";
+                                        break;
+                        default: type = "real";
+                                        break;
+                    }
+                    sb.append(name + " " + type);
+                    if (request.getParameter("key").equals("field" + i)) {
+                        sb.append(" not null, ");
+                        key = name;
+                    } else {
+                        sb.append(", ");
+                    }
+                }
+                sb.append("primary key(" + key + "))");
+                //String is built and ready to be sent to web service
+                //once web service is executed with boolean result:
+                if (true) {
+                    response.sendRedirect("mainPage.jsp?succ=" + request.getParameter("tableN"));
+                }
+            }
         }
     }
 

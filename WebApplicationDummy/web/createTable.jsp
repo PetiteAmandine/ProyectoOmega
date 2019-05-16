@@ -23,22 +23,28 @@ and open the template in the editor.
                 var divN = "div" + count;
                 var fieldN = "field" + count;
                 var typeN = "type" + count;
-                var field = "<div id = '" + divN + "'>";
-                field += "Field name: <input type='text' name='" + fieldN + "' placeholder='" + fieldN + "'onkeyup='verify(this)' required/>";
-                field += " Type: <select name='" + typeN + "'>";
+                var field = "<div id='" + divN + "' name = '" + divN + "'>";
+                field += "Field name: <input type='text' id='" + fieldN + "' name='" + fieldN + "' placeholder='" + fieldN + "'onblur='verify(this)' required/>";
+                field += " Type: <select id='" + typeN + "' name='" + typeN + "'>";
                 field += "<option>Varchar</option>";
                 field += "<option>Integer</option>";
                 field += "<option>Double</option>";
                 field += "</select> Primary key: <input type='radio' name='key' value= '" + fieldN + "'/><br>";
-                document.getElementById("fieldsDiv").innerHTML += field;
+                var node = document.createElement("DIV");
+                node.innerHTML = field;
+                document.getElementById("fieldsDiv").appendChild(node);
+                document.getElementById("cCount").value = count;
             }
 
             function removeField() {
                 if (count > 1) {
+                    if (document.getElementsByName("key")[count - 1].checked)
+                        document.getElementsByName("key")[count - 2].checked = true;
                     var divN = "div" + count;
                     count--;
                     var deadDiv = document.getElementById(divN);
                     deadDiv.parentNode.removeChild(deadDiv);
+                    document.getElementById("cCount").value = count;
                 }
                 else {
                     alert("The table must have at least one field.");
@@ -47,8 +53,13 @@ and open the template in the editor.
 
             function verify(element) {
                 var x = element.value;
-                if (x == "" || x.indexOf(" ") >= 0)
+                if (x == "" || x.indexOf(" ") >= 0) {
+                    element.style.backgroundColor = "pink";
                     alert("Invalid name.");
+                }
+                else {
+                    element.style.backgroundColor = "";
+                }
             }
         </script>
         <h1>DataWeb Wizard</h1>
@@ -57,11 +68,12 @@ and open the template in the editor.
         </div>
         <h3>Table creator</h3>
         <form name = "bigForm" autocomplete="off" action='createTableServlet'>
-            Table name: <input type="text" id="tableN" placeholder="myTable" onkeyup="verify(this)" required/><br><br>
+            <input type="hidden" id="cCount" name="cCount" value='1'/>
+            Table name: <input type="text" id="tableN" name="tableN" placeholder="myTable" onblur="verify(this)" required/><br><br>
             <div id="fieldsDiv">
                 <div id="div1">
-                    Field name: <input type="text" name="field1" placeholder="field1" onkeyup="verify(this)" required/>
-                    Type: <select name="type1">
+                    Field name: <input type="text" id="field1" name="field1" placeholder="field1" onblur="verify(this)" value="" required/>
+                    Type: <select id="type1" name="type1" >
                         <option>Varchar</option>
                         <option>Integer</option>
                         <option>Double</option>
