@@ -17,10 +17,16 @@ and open the template in the editor.
             if (mySession.getAttribute("user") == null) {
                 response.sendRedirect("index.jsp?logout=false");
             }
-            out.println("<h3>Welcome back, " + mySession.getAttribute("user") + "!</h3><br>");
+            out.println("<h3>Welcome back, " + mySession.getAttribute("user") + "!</h3>");
         %>
         <div>
             <script src="links.js"></script>
         </div>
+        <%
+            if (request.getParameter("succ") != null) {
+                out.println("<p>Your table " + request.getParameter("succ") + " has been created"
+                        + " successfully.");
+            }
+        %>
     </body>
 </html>
