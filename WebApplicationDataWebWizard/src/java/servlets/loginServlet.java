@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import webserviceclients.RESTfulClient;
+import wsclientlogin.LoginClient;
 
 /**
  *
@@ -34,7 +34,7 @@ public class loginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            RESTfulClient client = new RESTfulClient(request.getParameter("user"), request.getParameter("pass"));
+            LoginClient client = new LoginClient(request.getParameter("user"), request.getParameter("pass"));
             String res = client.doLogin();
             if (res.equals("true")) {
                 HttpSession mySession = request.getSession();

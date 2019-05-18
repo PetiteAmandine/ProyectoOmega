@@ -16,6 +16,14 @@
         <servlet-name>registerServlet</servlet-name>
         <servlet-class>servlets.registerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>queryTableServlet</servlet-name>
+        <servlet-class>servlets.queryTableServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateServlet</servlet-name>
+        <servlet-class>servlets.updateServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>checkTablesServlet</servlet-name>
         <url-pattern>/checkTablesServlet</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>queryTableServlet</servlet-name>
+        <url-pattern>/queryTableServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateServlet</servlet-name>
+        <url-pattern>/updateServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

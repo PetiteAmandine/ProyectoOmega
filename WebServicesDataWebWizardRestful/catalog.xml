@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Login/Login?wsdl" uri="src/conf/xml-resources/web-service-references/Login/wsdl/localhost_8080/Login/Login.wsdl"/>
+    <system systemId="http://localhost:8080/Login/Login?xsd=1" uri="src/conf/xml-resources/web-service-references/Login/wsdl/localhost_8080/Login/Login.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Register/Register?wsdl" uri="src/conf/xml-resources/web-service-references/Register/wsdl/localhost_8080/Register/Register.wsdl"/>
+    <system systemId="http://localhost:8080/Register/Register?xsd=1" uri="src/conf/xml-resources/web-service-references/Register/wsdl/localhost_8080/Register/Register.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CreateTable/CreateTable?wsdl" uri="src/conf/xml-resources/web-service-references/CreateTable/wsdl/localhost_8080/CreateTable/CreateTable.wsdl"/>
+    <system systemId="http://localhost:8080/CreateTable/CreateTable?xsd=1" uri="src/conf/xml-resources/web-service-references/CreateTable/wsdl/localhost_8080/CreateTable/CreateTable.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SelectTables/SelectTables?wsdl" uri="src/conf/xml-resources/web-service-references/SelectTables/wsdl/localhost_8080/SelectTables/SelectTables.wsdl"/>
+    <system systemId="http://localhost:8080/SelectTables/SelectTables?xsd=1" uri="src/conf/xml-resources/web-service-references/SelectTables/wsdl/localhost_8080/SelectTables/SelectTables.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/TableQuery/TableQuery?wsdl" uri="src/conf/xml-resources/web-service-references/TableQuery_1/wsdl/localhost_8080/TableQuery/TableQuery.wsdl"/>
+    <system systemId="http://localhost:8080/TableQuery/TableQuery?xsd=1" uri="src/conf/xml-resources/web-service-references/TableQuery_1/wsdl/localhost_8080/TableQuery/TableQuery.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Update/Update?wsdl" uri="src/conf/xml-resources/web-service-references/Update/wsdl/localhost_8080/Update/Update.wsdl"/>
+    <system systemId="http://localhost:8080/Update/Update?xsd=1" uri="src/conf/xml-resources/web-service-references/Update/wsdl/localhost_8080/Update/Update.xsd_1.xsd"/>
+</catalog>

@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="DBSoap">
-      <implementation-class>webservices.DBSoap</implementation-class>
+    <service name="Login">
+      <implementation-class>webservices.webservicelogin.Login</implementation-class>
+    </service>
+    <service name="Register">
+      <implementation-class>webservices.webserviceregister.Register</implementation-class>
+    </service>
+    <service name="CreateTable">
+      <implementation-class>webservices.webservicetablecreator.CreateTable</implementation-class>
+    </service>
+    <service name="Update">
+      <implementation-class>webservices.webserviceupdater.Update</implementation-class>
+    </service>
+    <service name="TableQuery">
+      <implementation-class>webservices.webservicetablequery.TableQuery</implementation-class>
+    </service>
+    <service name="SelectTables">
+      <implementation-class>webservices.webservicets.SelectTables</implementation-class>
     </service>
   </services>
   <clients/>

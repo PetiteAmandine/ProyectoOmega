@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-Login" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Login"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Login" destdir="${build.generated.dir}/jax-wsCache/Login" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Login/wsdl/localhost_8080/Login/Login.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Login/Login?wsdl" xnocompile="true" xendorsed="true" package="wsclientlogin">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Login/wsdl/localhost_8080/Login/Login.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Login"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Login">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Login" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsclientlogin"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Login"/>
+    </target>
+    <target name="wsimport-client-Register" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Register"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Register" destdir="${build.generated.dir}/jax-wsCache/Register" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Register/wsdl/localhost_8080/Register/Register.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Register/Register?wsdl" xnocompile="true" xendorsed="true" package="webserviceregister">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Register/wsdl/localhost_8080/Register/Register.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Register"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Register">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Register" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webserviceregister"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Register"/>
+    </target>
+    <target name="wsimport-client-CreateTable" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CreateTable"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CreateTable" destdir="${build.generated.dir}/jax-wsCache/CreateTable" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CreateTable/wsdl/localhost_8080/CreateTable/CreateTable.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CreateTable/CreateTable?wsdl" xnocompile="true" xendorsed="true" package="webservicecreatetable">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CreateTable/wsdl/localhost_8080/CreateTable/CreateTable.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CreateTable"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CreateTable">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CreateTable" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservicecreatetable"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CreateTable"/>
+    </target>
+    <target name="wsimport-client-SelectTables" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/SelectTables"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SelectTables" destdir="${build.generated.dir}/jax-wsCache/SelectTables" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SelectTables/wsdl/localhost_8080/SelectTables/SelectTables.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/SelectTables/SelectTables?wsdl" xnocompile="true" xendorsed="true" package="webserviceselecttables">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/SelectTables/wsdl/localhost_8080/SelectTables/SelectTables.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/SelectTables"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/SelectTables">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-SelectTables" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webserviceselecttables"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/SelectTables"/>
+    </target>
+    <target name="wsimport-client-TableQuery" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/TableQuery"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TableQuery" destdir="${build.generated.dir}/jax-wsCache/TableQuery" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TableQuery/wsdl/localhost_8080/TableQuery/TableQuery.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/TableQuery/TableQuery?wsdl" xnocompile="true" xendorsed="true" package="webservicetablequery">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/TableQuery/wsdl/localhost_8080/TableQuery/TableQuery.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/TableQuery"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/TableQuery">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-TableQuery" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservicetablequery"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/TableQuery"/>
+    </target>
+    <target name="wsimport-client-TableQuery_1" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/TableQuery_1"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TableQuery_1" destdir="${build.generated.dir}/jax-wsCache/TableQuery_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TableQuery_1/wsdl/localhost_8080/TableQuery/TableQuery.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/TableQuery/TableQuery?wsdl" xnocompile="true" xendorsed="true" package="webservicequerytable">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/TableQuery_1/wsdl/localhost_8080/TableQuery/TableQuery.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/TableQuery_1"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/TableQuery_1">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-TableQuery_1" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webservicequerytable"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/TableQuery_1"/>
+    </target>
+    <target name="wsimport-client-Update" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Update"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Update" destdir="${build.generated.dir}/jax-wsCache/Update" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Update/wsdl/localhost_8080/Update/Update.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Update/Update?wsdl" xnocompile="true" xendorsed="true" package="wsclientupdate">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Update/wsdl/localhost_8080/Update/Update.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Update"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Update">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Update" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsclientupdate"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Update"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Login, wsimport-client-Register, wsimport-client-CreateTable, wsimport-client-SelectTables, wsimport-client-TableQuery, wsimport-client-TableQuery_1, wsimport-client-Update"/>
+</project>

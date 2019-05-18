@@ -11,8 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import javax.servlet.http.HttpSession;
+import wsclientselecttables.SelectTablesClient;
 
 /**
  *
@@ -33,21 +33,10 @@ public class checkTablesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            /*JSONObject jsonResponse = new JSONObject();
-            JSONArray clientes = new JSONArray();
-            JSONObject cliente = new JSONObject();
-            cliente.put("nombre", "Bolita");
-            clientes.add(cliente);
-            cliente = new JSONObject();
-            cliente.put("nombre", "Amandine");
-            clientes.add(cliente);
-            cliente = new JSONObject();
-            cliente.put("nombre", "Pedi");
-            clientes.add(cliente);
-            jsonResponse.put("clientes", clientes);
-            out.write(jsonResponse.toString());*/
-            //Connect to web service, send username, and obtain result set in form of json or xml
+            HttpSession mySession = request.getSession();
+            SelectTablesClient client = new SelectTablesClient(mySession.getAttribute("user").toString());
+            String jsonString = client.doSelectTables();
+            out.write(jsonString);
         }
     }
 

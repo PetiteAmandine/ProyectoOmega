@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Login/Login?wsdl" uri="wsdl/localhost_8080/Login/Login.wsdl"/>
+    <system systemId="http://localhost:8080/Login/Login?xsd=1" uri="wsdl/localhost_8080/Login/Login.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Register/Register?wsdl" uri="wsdl/localhost_8080/Register/Register.wsdl"/>
+    <system systemId="http://localhost:8080/Register/Register?xsd=1" uri="wsdl/localhost_8080/Register/Register.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CreateTable/CreateTable?wsdl" uri="wsdl/localhost_8080/CreateTable/CreateTable.wsdl"/>
+    <system systemId="http://localhost:8080/CreateTable/CreateTable?xsd=1" uri="wsdl/localhost_8080/CreateTable/CreateTable.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SelectTables/SelectTables?wsdl" uri="wsdl/localhost_8080/SelectTables/SelectTables.wsdl"/>
+    <system systemId="http://localhost:8080/SelectTables/SelectTables?xsd=1" uri="wsdl/localhost_8080/SelectTables/SelectTables.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/TableQuery/TableQuery?wsdl" uri="wsdl/localhost_8080/TableQuery/TableQuery.wsdl"/>
+    <system systemId="http://localhost:8080/TableQuery/TableQuery?xsd=1" uri="wsdl/localhost_8080/TableQuery/TableQuery.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Update/Update?wsdl" uri="wsdl/localhost_8080/Update/Update.wsdl"/>
+    <system systemId="http://localhost:8080/Update/Update?xsd=1" uri="wsdl/localhost_8080/Update/Update.xsd_1.xsd"/>
+</catalog>

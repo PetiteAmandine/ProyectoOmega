@@ -66,6 +66,11 @@ and open the template in the editor.
         <div>
             <script src="links.js"></script>
         </div>
+        <%
+            if (request.getParameter("fail") != null) {
+                out.println("<p>There was a problem creating your table " + request.getParameter("fail") + "</p>");
+            }
+        %>
         <h3>Table creator</h3>
         <form name = "bigForm" autocomplete="off" action='createTableServlet'>
             <input type="hidden" id="cCount" name="cCount" value='1'/>
@@ -83,7 +88,7 @@ and open the template in the editor.
             </div>
             <br><input type="button" value="Add field" onclick="addField()"/>
             <input type="button" value="Remove field" onclick="removeField()"/>
-            <br><br><input type="submit" value="Ready!" /><br>
+            <br><br><input type="submit" value="Ready!""/><br>
         </form>
     </body>
 </html>

@@ -22,25 +22,6 @@ and open the template in the editor.
                 reg += "<input type='submit' value='Join!' />";
                 document.getElementById("registry").innerHTML += reg;
             }
-            function login() {
-                var ajaxRequest;
-                if (window.XMLHttpRequest) {
-                    ajaxRequest = new XMLHttpRequest(); // IE7+, Firefox, Chrome, Opera, Safari
-                } else {
-                    ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP"); // IE6, IE5
-                }
-                ajaxRequest.onreadystatechange = function () {
-                    if (ajaxRequest.readyState == 4 &&
-                            (ajaxRequest.status == 200 || ajaxRequest.status == 204)) {
-                        
-                        document.getElementById("user").value = ajaxRequest.responseText;
-                        //if (ajaxRequest.responseText.equals("true"))
-                    }
-                }
-                ajaxRequest.open('GET', "http://localhost:8080/WebServiceDataWebWizardRest/webresources/MyPath", true /*async*/);
-                ajaxRequest.setRequestHeader("Content-Type", "text/html");
-                ajaxRequest.send();
-            }
         </script>
         <h1>Welcome to DataWeb Wizard!</h1>
         <%

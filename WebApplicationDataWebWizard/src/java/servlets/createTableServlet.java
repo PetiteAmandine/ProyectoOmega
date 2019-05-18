@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import wsclientcreatetable.CreateTableClient;
 
 /**
  *
@@ -57,10 +59,13 @@ public class createTableServlet extends HttpServlet {
                     }
                 }
                 sb.append("primary key(" + key + "))");
-                //String is built and ready to be sent to web service
-                //once web service is executed with boolean result:
-                if (true) {
+                HttpSession mySession = request.getSession();
+                CreateTableClient client = new CreateTableClient(sb.toString(), request.getParameter("tableN"), mySession.getAttribute("user").toString());
+                String res = client.doCreateTable();
+                if (res.equals("true")) {
                     response.sendRedirect("mainPage.jsp?succ=" + request.getParameter("tableN"));
+                } else {
+                    response.sendRedirect("createTable.jsp?fail=" + request.getParameter("tableN"));
                 }
             }
         }
